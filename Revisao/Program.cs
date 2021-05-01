@@ -44,7 +44,44 @@ namespace Revisao
                         }
                         break;
                     case "3":
-                        //TODO: implement calcular media geral
+                        decimal notaTotal = 0;
+                        var nrAlunos = 0;
+
+                        for (int i = 0; i < alunos.Length; i++)
+                        {
+                            if(!string.IsNullOrEmpty(alunos[i]).Nome))
+                            {
+                                notaTotal = notaTotal + alunos[i].Nota;
+                                nrAlunos++;
+                            }
+                        }
+
+                        var mediaGeral = notaTotal / nrAlunos;
+                        Conceito conceitoGeral;
+
+                        if (mediaGeral < 2)
+                        {
+                            conceitoGeral = Conceito.E;
+                        }
+                        else if (mediaGeral < 4)
+                        {
+                            conceitoGeral = Conceito.D;
+                        }
+                        else if (mediaGeral < 6)
+                        {
+                            conceitoGeral = Conceito.D;
+                        }
+                        else if (mediaGeral < 8)
+                        {
+                            conceitoGeral = Conceito.D;
+                        }
+                        else
+                        {
+                            conceitoGeral = Conceito.A;
+                        }
+
+                        Console.WriteLine($"Média Geral: {mediaGeral} - Conceito: {conceitoGeral}");
+                        
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
